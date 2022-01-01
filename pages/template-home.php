@@ -1,251 +1,111 @@
 <?php
 /*
-Template Name: Home Template
+Template Name: Home
 */
-get_header(); ?>
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="<?php bloginfo( 'charset' ); ?>">		
+		<script type="text/javascript">
+			var pathInfo = {
+				base: '<?php echo get_template_directory_uri(); ?>/',
+				css: 'css/',
+				js: 'js/',
+				swf: 'swf/',
+			}
+		</script>
+<body <?php body_class(); ?>>
 
-<?php the_title();  ?>
+<div id="page" class="site">
+	<!-- Head Top -->
+	<div class='top-head'>
+		<div class='container'>
+			<div id="header-widget-area" class="head-left chw-widget-area widget-area" role="complementary">
+				<div class="widget_text head-left-custom">
+					<div class="textwidget custom-html-widget">
+						<ul>
+							<?php
+							if( have_rows('header_contact') ):
 
-<?php the_content();  ?>
+								while ( have_rows('header_contact') ) : the_row();    	
+									
+									if( get_row_layout() == 'contact' ):
 
-<?php
+										if( have_rows('header_phone') ):?>
+											<?php while( have_rows('header_phone') ) : the_row();                
+												$phone = get_sub_field('phone');?>
+												<li class="fa fa-phone"><a><?php echo $phone;?></a></li>													
+													
+											
+											<?php endwhile; ?>
+										<?php endif; ?><br><br>															
+											
+										<?php if (have_rows('header_adr')) :
+											while( have_rows('header_adr') ) : the_row();                
+												$adr = get_sub_field('adr');?>
+												<li class="fa fa-map"><a><?php echo $adr;?></a></li>														      
+											
+											<?php endwhile; ?>
+										<?php endif; ?>
 
-echo "Test repeater" ; ?><br>
+									<?php endif;?>
+								<?php endwhile; ?>
+							<?php endif;?>	
+														
+						</ul>
+					</div>
+				</div>				 
+			</div>
 
-<?php if( have_rows('text') ): ?>
- 
-        <ul>
-			<p>
-
-            <?php while( have_rows('text') ) : the_row();
-
-                $t_text = get_sub_field('t_text');
-				$t_text_area = get_sub_field('t_text_area');
-				$t_img = get_sub_field('t_img');
-				  echo $t_text;?><br>
-			      <?php echo wp_get_attachment_image( $t_img['ID'], array( $t_img['width'], $t_img['height'] ) );?><br>
-				  <?php echo $t_text_area; ?><br><br>
-            <?php endwhile; ?>
-			</p>
-		</ul>
- <?php else :
-endif;
- ?>
-
-<?php
-
-echo "Test flexible"; ?> <br>
-
-
-<?php if( have_rows('flex') ):
-
-	
-    while ( have_rows('flex') ) : the_row();
-    	
-    	
-    	if( get_row_layout() == 'content' ):
-			$text = get_sub_field('t_flex');
-			$ta = get_sub_field('ta_flex');
-			$img = get_sub_field('img_flex');
-			echo $text; ?><br>
-			<?php echo $ta; ?><br>
-			<?php echo wp_get_attachment_image( $img['ID'], array( $img['width'], $img['height'] ) );	
-        endif;
-    
-    endwhile;
-
-else :
-	echo "Do something..." ;
-endif; ?> <br><br>
-
-
-
-
-
-<?php if( have_rows('tab_flex') ): ?><br>
-
-    <?php echo "Test flexidle table";
-	
-while ( have_rows('tab_flex') ) : the_row(); ?>
-		
-	
-	<table cellspacing = "10">
-
-	    <tr>	
-	
-			<?php if( get_row_layout() == 'content' ):
-				$t_l = get_sub_field('tab_l');
-				$t_r = get_sub_field('tab_r');?>
-				<td>
-				<?php echo $t_l; ?>
-				</td>
-				<td>
-				<?php echo $t_r; ?>
-				</td>	
-			<?php  endif;?>
-				
-        </tr>
-	</table>
-
-<?php endwhile;
-
-else :
-echo "Do something..." ;
-endif; ?> <br><br>
-
-
-<?php
-
-  echo "Test car shop"; ?> <br><br>
-
-<?php   if( have_rows('f_r') ): ?>
-	    
-	<table cols = "2" >
-		
-		<?php while ( have_rows('f_r') ) : the_row(); ?>			
-			
-			<?php if( get_row_layout() == 'sale' ):?>
-
-				<tr>
-					<td>        
-						<?php $name_block = get_sub_field('name_block');
-						echo $name_block;?>
-					</td>
-				</tr>  
-				<?php if (have_rows('repeater')):  ?>				
-					<tr>
-						<td>     				
+			<div id="header-widget-area" class="head-right chw-widget-area widget-area" role="complementary">
+				<div class="widget_text head-left-custom">
+					<div class="textwidget custom-html-widget">
+						<ul>
+						    <?php if(get_field ('instagram')) : ?>   
+						    <li><a href="<?php the_field('instagram') ?>" target = "_blanc" class="fa fa-instagram fa-2x"></a></li>
+							<?php endif; ?>
+							<?php if(get_field ('you_tube')) : ?>
+							<li><a href="<?php the_field('you_tube') ?>" target = "_blanc" class="fa fa-youtube fa-2x"></a></li>
+							<?php endif; ?>
+							<?php if(get_field ('facebook')) : ?>
+							<li><a href="<?php the_field('facebook') ?>" target = "_blanc" class="fa fa-facebook fa-2x"></a></li>
+							<?php endif; ?>
+							<?php 
+							if(get_field ('social_text')) : ?><br>
+                                 <li><a class="lick-right"><?php echo the_field('social_text'); ?></a></li>								
+						    <?php endif;?> 
 							
-							<?php while( have_rows('repeater') ) : the_row();
-								$img_rep = get_sub_field('img_rep');
-								$int_rep = get_sub_field('int_rep') . "$";
-								$text_rep = get_sub_field('text_rep');
-								$textarea_rep = get_sub_field('textarea_rep');
-								$button_rep = get_sub_field('button_rep');?>
+                        </ul>
+					</div>
+				</div>
+			 </div>
+		</div>
+	</div>
+	<!-- End Top menu -->
 
-								<table  width="30%">
-									<tr>				
-										<td>				
-											<?php echo wp_get_attachment_image( $img_rep['ID'], array( $img_rep['width'], $img_rep['height'] ) ); ?><br>
-											
-											
-											<?php echo $int_rep; ?><br>
-											
-											
-											<?php echo $text_rep; ?><br>
+	<header class="site-header">	
 
-											<?php echo $textarea_rep; ?><br>
-
-											<a href="<?php echo $button_rep; ?>" target = "_blanck">
-												<button>archive</button>
-											</a><br>
-										</td>		
-									</tr>				
-								</table>							
-								
-							<?php endwhile;  ?>
-						</td>					
-					</tr>
-				<?php else : $default_sale = get_sub_field('default_sale');
-						echo $default_sale; ?>
-
-				<?php endif; ?>		
-				
-			<?php endif;?>							
+		<div class="site-header-main">
 		
-		<?php endwhile; ?> 
-	</table>
+			<div class="site-branding">
+				<?php if(get_field ('logo')) : ?>
+					<img src="<?php the_field('logo'); ?>">
+					<h1 style="color:#ffffff"><?php echo the_field('name_school');?></h1>
+				<?php endif; ?>
+			</div>	
 
-<?php endif; ?>
-
-
-<?php   if( have_rows('f_r_full_tab') ): ?>
-	    
-		<table cols = "2" >
+			<div class="anchor-button">
+				<a href="#classes">classes</a>  <a href="#about">about</a>  <a href="#gallery">gallery</a> 
+		    </div>
 			
-			<?php while ( have_rows('f_r_full_tab') ) : the_row(); ?>			
-				
-				<?php if( get_row_layout() == 'full' ):?>
-	
-					<?php if (have_rows('full_rep_tab_l')):  ?>				
-						<tr>
-							<td>     				
-								
-								<?php while( have_rows('full_rep_tab_l') ) : the_row();
-									$img_rep = get_sub_field('img');
-									$int_rep = get_sub_field('int') . "$";
-									$text_rep = get_sub_field('text');
-									$textarea_rep = get_sub_field('textarea');
-									$button_rep = get_sub_field('button');?>
-	
-									<table  width="30%">
-										<tr>				
-											<td>				
-												<?php echo wp_get_attachment_image( $img_rep['ID'], array( $img_rep['width'], $img_rep['height'] ) ); ?><br>
-												
-												
-												<?php echo $int_rep; ?><br>
-												
-												
-												<?php echo $text_rep; ?><br>
-	
-												<?php echo $textarea_rep; ?><br>
-	
-												<a href="<?php echo $button_rep; ?>" target = "_blanck">
-													<button>archive</button>
-												</a><br>
-											</td>		
-										</tr>				
-									</table>							
-									
-								<?php endwhile;  ?>
-							</td>					
-						</tr>
-					<?php endif; ?>
-					<?php if (have_rows('full_rep_tab_r')):  ?>				
-						<tr>
-							<td>     				
-								
-								<?php while( have_rows('full_rep_tab_r') ) : the_row();
-									$img_rep = get_sub_field('img');
-									$int_rep = get_sub_field('int') . "$";
-									$text_rep = get_sub_field('text');
-									$textarea_rep = get_sub_field('textarea');
-									$button_rep = get_sub_field('button');?>
-	
-									<table  width="30%">
-										<tr>				
-											<td>				
-												<?php echo wp_get_attachment_image( $img_rep['ID'], array( $img_rep['width'], $img_rep['height'] ) ); ?><br>
-												
-												
-												<?php echo $int_rep; ?><br>
-												
-												
-												<?php echo $text_rep; ?><br>
-	
-												<?php echo $textarea_rep; ?><br>
-	
-												<a href="<?php echo $button_rep; ?>" target = "_blanck">
-													<button>archive</button>
-												</a><br>
-											</td>		
-										</tr>				
-									</table>							
-									
-								<?php endwhile;  ?>
-							</td>					
-						</tr>
-					<?php endif; ?>		
+		</div>
 		
-					
-				<?php endif;?>							
-			
-			<?php endwhile; ?> 
-		</table>
-	
-	<?php endif; ?>
-	
+		
+	</header>		
+
+
 
 
 <?php get_footer(); ?>
