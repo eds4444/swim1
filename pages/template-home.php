@@ -73,22 +73,63 @@ Template Name: Home
 			
 		</div>	
 	</div>						
-	<!-- End Top menu -->
+	<!-- End Top menu -->	
 
-	<header>	
-
+	<header>
+		<div  class="header-logo-anchors">
+			<div class="logo-name">
 				<?php if(get_field ('logo')) : ?>
+					<div class="logo">
 					<img src="<?php the_field('logo'); ?>">
-					<h1 style="color:#ffffff"><?php echo the_field('name_school');?></h1>
+					</div>
+					<div class="name">
+					 <h3><?php echo the_field('name_school');?></h3>
+					</div>
 				<?php endif; ?>
+			</div>
+			<div class="anchors">				
+			    <a href="#about"><?php the_field('anchor_about') ?></a>  <a href="#classes"><?php the_field('anchor_classes') ?></a>  <a href="#gallery"><?php the_field('anchor_gallery') ?></a>
+			</div>	 
+		</div>	
+	</header>
 
-				<a href="#classes">classes</a>  <a href="#about">about</a>  <a href="#gallery">gallery</a> 
-		
-	</header>		
+	<?php masterslider(1); ?>
+
+	<section><a name="about" class="anchor"></a>
+    <?php    
+    if( have_rows('about') ):
+
+        while ( have_rows('about') ) : the_row();
+            
+            if( get_row_layout() == 'about_text' ):
+                $title = get_sub_field('title');
+                $img = get_sub_field('img');
+                $text = get_sub_field('text');?>
+
+                <div class="about">
+                    <div class="about-img">                            
+                        <img src="<?php  echo $img; ?>" alt="swim" >
+                    </div>
+                    <div class="about-title-text">                
+                        <p><h1><?php echo $title; ?></h1></p><br>
+                    
+                        <p><h3><?php echo $text; ?></h3></p>
+                    </div>
+                </div>   
+                
+            <?php endif;?>
+    
+        <?php endwhile;?>
+
+    <?php endif;?>
+</section>
+
+kkkkkkk
+jjjjjj
 
 
-
-
-	
+	<?php get_footer();  ?>
 </body>
+</html>
+
 

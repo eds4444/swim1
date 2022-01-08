@@ -15,17 +15,29 @@ li {
 a { 
    text-decoration: none; /* Отменяем подчеркивание у ссылки */   
  } 
+ hr{
+     color: darkblue;
+
+ }
+ header{
+     background-color: darkblue;
+     position: fixed;
+     top: auto;
+     left: 0;
+     width: 100%;
+     height: auto;
+ }
 .top-menu{
     width: 100%;
     height: auto;
     margin: 0;
-    padding: 0;
-    background-color: aqua;
+    padding: 0;    
     overflow:hidden;
 }
 .top-menu h4{
-    color: silver;
-    margin: 5px;    
+    color: grey;
+    margin: 0px;
+    font-family: cursive; 
     
 }
 .top-menu ul{
@@ -79,7 +91,11 @@ a {
  font: normal 30px/1 'dashicons'; 
 }
 .social-inst a{
-    color: red;
+    color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 .social-ytube{ 
     float: left;   
@@ -96,4 +112,38 @@ a {
     content: "\f305";    
  -webkit-font-smoothing: antialiased;
  font: normal 30px/1 'dashicons'; 
+}
+.social-facebook a{
+    color: #3b5998;
+}
+.header-logo-anchors{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+.logo-name{
+    float: left;
+    margin: 10px;
+}
+.logo{
+    margin: 2px;
+}
+.name h3{
+    color: whitesmoke;
+    margin: 2px;
+    font-family: cursive;
+}
+.anchors{
+    float: right;
+    margin: 45px;
+    text-align: center;
+       
+    
+}
+.anchors a{
+    color: whitesmoke;
+    margin: 2px;
+    font-family: cursive;    
 }
