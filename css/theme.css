@@ -1,0 +1,99 @@
+/*
+Theme Name: Swim
+*/
+html{
+    margin-top: 0px !important;
+}
+
+body{
+    background-color: #fffdd0; /* Цвет фона веб-страницы */
+   } 
+li {
+   list-style-type: none; /* Убираем маркеры */
+   
+}
+a { 
+   text-decoration: none; /* Отменяем подчеркивание у ссылки */   
+ } 
+.top-menu{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    overflow:hidden;
+}
+.top-menu h4{
+    color: silver;
+    margin: 5px;    
+    
+}
+.top-menu ul{
+    margin: 2px;
+    padding: 2px;    
+} 
+.contact-phone{
+    float: left;
+    width: 30%;
+    height: auto;
+    content: "\f525";    
+    
+} 
+.contact-adress{
+    float: left;
+    width: 30%;
+} 
+.social{
+    float: left;
+    width: 30%;
+}
+.contact-phone li::before{
+    content: "\f525";
+    float: left;
+ -webkit-font-smoothing: antialiased;
+ font: normal 15px/1 'dashicons';
+ vertical-align: top;
+}
+.contact-adress li::before{
+    content: "\f231";
+    float: left;
+ -webkit-font-smoothing: antialiased;
+ font: normal 15px/1 'dashicons';
+ vertical-align: top;
+}
+.social-content{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+.social-text{
+    float: left;
+    margin: 5px;
+}
+.social-inst{ 
+    float: left;   
+    content: "\f12d";    
+ -webkit-font-smoothing: antialiased;
+ font: normal 30px/1 'dashicons'; 
+}
+.social-inst a{
+    color: red;
+}
+.social-ytube{ 
+    float: left;   
+    content: "\f19b";       
+ -webkit-font-smoothing: antialiased;
+ font: normal 30px/1 'dashicons';
+  
+}
+.social-ytube a{
+  color: red;
+}
+.social-facebook{ 
+    float: left;   
+    content: "\f305";    
+ -webkit-font-smoothing: antialiased;
+ font: normal 30px/1 'dashicons'; 
+}

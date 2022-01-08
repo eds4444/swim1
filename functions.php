@@ -26,3 +26,20 @@ include( get_template_directory() . '/inc/menus.php' );
 
 // Theme css & js
 include( get_template_directory() . '/inc/scripts.php' );
+
+// подключить стили и скрипты
+add_action( 'wp_enqueue_scripts', 'swim_scripts' );
+
+function swim_scripts() {
+	wp_enqueue_style( 'styles', get_stylesheet_uri() );
+	wp_enqueue_style( 'theme', get_template_directory_uri() . '/css/theme.css' );
+}
+function my_function_admin_bar(){ return false; }
+add_filter( 'show_admin_bar' , 'my_function_admin_bar');
+
+function my_dashicons() {
+    wp_enqueue_style( 'dashicons' );
+}
+add_action( 'wp_enqueue_scripts', 'my_dashicons' );
+
+
