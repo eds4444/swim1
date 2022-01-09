@@ -1,13 +1,22 @@
 /*
 Theme Name: Swim
 */
-html{
-    margin-top: 0px !important;
+html{    
+    margin: 0 !important;      
+   
 }
 
 body{
-    background-color: #fffdd0; /* Цвет фона веб-страницы */
-   } 
+    background-color: #e4e4a0; 
+    
+   }
+.site{
+    
+    min-width: 100%; 
+    min-height: 100%;
+    margin: -8px;    
+    overflow:  hidden;
+}    
 li {
    list-style-type: none; /* Убираем маркеры */
    
@@ -16,16 +25,32 @@ a {
    text-decoration: none; /* Отменяем подчеркивание у ссылки */   
  } 
  hr{
-     color: darkblue;
+    border: none;
+    background: #00355D;
+    color: #00355D;
+    height: 20px;
+    margin: 0;
 
  }
+ h1{
+    color: #00355D;    
+    font-family: cursive;  
+ }
+ h3{
+    color: grey;    
+    font-family: cursive;
+ }
  header{
-     background-color: darkblue;
-     position: fixed;
-     top: auto;
-     left: 0;
-     width: 100%;
-     height: auto;
+     background-color: #00355D;     
+     
+ }
+ .slider{
+    width: auto;
+ }
+ .name-block{
+    
+    text-align: center;
+    
  }
 .top-menu{
     width: 100%;
@@ -56,7 +81,7 @@ a {
     width: 30%;
 } 
 .social{
-    float: left;
+    float: right;
     width: 30%;
 }
 .contact-phone li::before{
@@ -146,4 +171,125 @@ a {
     color: whitesmoke;
     margin: 2px;
     font-family: cursive;    
+}
+.about{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+    position: relative;
+          
+}
+.about-img{
+    
+    width: 40%;
+    display: flex;
+    margin: 20px; 
+    position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0; 
+  
+}
+.img-singl{
+    
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}    
+.about-title-text{
+    float: right;
+    width: 50%;
+    margin: 20px; 
+}
+.classes{    
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 30px;
+    overflow:hidden;
+    position: relative;
+    
+}
+.class{
+    float: left;
+    width: 30%;
+    height: auto;
+    margin: 10px;    
+    overflow:hidden;
+    
+}
+.class-img{     
+    margin: 10px;
+    width: auto;
+    height: 300px;    
+    overflow: hidden;
+    display:flex;
+    justify-content: center; 
+    align-items: center; 
+    
+        
+}
+.class-text{   
+    margin: 10px;    
+    text-align: center;
+}
+.gallery{    
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 30px;
+    overflow:hidden;
+    position: relative;
+    
+    
+}
+.single-gallery{
+    width: 30%;
+    margin: 10px;
+    float: left;    
+    height: 400px;    
+    overflow: hidden;
+    display:flex;
+    justify-content: center; 
+    align-items: center;    
+}
+.instructors{         
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 30px;
+    overflow:hidden;
+    position: relative;
+}
+.single-instr{    
+    width: 100%;
+    display: flex;
+    float: left;
+    margin: 10px;
+    overflow: hidden;
+}
+.instr-img{    
+    width: 40%;
+    margin: 10px;
+    float: left;    
+    height: auto;    
+    overflow: hidden;
+    display:flex;
+    justify-content: center; 
+    align-items: center; 
+    
+      
+    
+}
+.instr-text{    
+    display: block;
+    width: 40%;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+    float: left;
+    overflow: hidden;
 }
