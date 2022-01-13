@@ -82,21 +82,21 @@ Template Name: Home
 				<div class="logo-name">
 					<?php if(get_field ('logo')) : ?>
 						<div class="logo">
-						<img src="<?php the_field('logo'); ?>">
+							<img src="<?php the_field('logo'); ?>">
 						</div>
 						<div class="name">
-						<h3><?php echo the_field('name_school');?></h3>
+							<h3><?php echo the_field('name_school');?></h3>
 						</div>
 					<?php endif; ?>
 				</div>
 				<div class="anchors">				
-					<a href="#about"><?php the_field('anchor_about') ?></a>  <a href="#classes"><?php the_field('anchor_classes') ?></a>  <a href="#gallery"><?php the_field('anchor_gallery') ?></a>
+					<a href="#about"><?php the_field('anchor_about') ?></a>   <a href="#classes"><?php the_field('anchor_classes') ?></a>    <a href="#gallery"><?php the_field('anchor_gallery') ?></a>
 				</div>	 
 			</div>	
 		</header>
 		
 		<div class="slider">
-		<?php masterslider(1); ?>
+		<?php masterslider(4); ?>
 		</div>
 
 		<hr>
@@ -274,6 +274,60 @@ Template Name: Home
 			</div>     
 			
 			<?php endif; ?>
+
+		</section>
+
+		<hr>
+
+		<section><a name="pricing" class="anchor"></a>
+		<div class="pricing">
+			<?php             
+				if( have_rows('pricing') ):?>
+
+                    <div class="name-block">
+						<h1><?php the_field('name_pricing');?></h1>					
+						<h3><?php the_field('title_pricing');?></h3>
+					</div>
+					<div class="pricing-block">
+						<?php while ( have_rows('pricing') ) : the_row();
+							
+							if( get_row_layout() == 'pr' ):
+
+								if( have_rows('type_pricing') ):
+									
+									while( have_rows('type_pricing') ) : the_row();
+										
+										$name_pricing = get_sub_field('name_pricing');
+										$price = get_sub_field('price');?>
+
+                                        <div class="name-pricing">
+										    <?php echo $name_pricing; ?>
+										</div>
+                                        <div class="price">
+										    <?php echo $price; ?>
+										</div>
+
+										<?php if( have_rows('service_list') ):
+											
+											while( have_rows('service_list') ) : the_row();									
+												
+												$type_of_service = get_sub_field('type_of_service');?>
+
+                                                <div class="type-service">
+												<?php echo $type_of_service;?>							
+											    </div>
+											<?php endwhile;									
+										
+										endif;							
+									endwhile;						
+								endif;
+							endif;
+						endwhile; ?>
+					</div>
+				<?php endif;
+			?>
+
+		</div>
 
 		</section>
 
