@@ -300,26 +300,30 @@ Template Name: Home
 										$name_pricing = get_sub_field('name_pricing');
 										$price = get_sub_field('price');?>
 
-                                        <div class="name-pricing">
-										    <?php echo $name_pricing; ?>
-										</div>
-                                        <div class="price">
-										    <?php echo $price; ?>
-										</div>
+                                        <div class="single-pricing-block">
+											<div class="name-pricing">
+												<h1><?php echo $name_pricing; ?></h1>
+											</div>
+											<div class="price">
+												<h1><?php echo $price; ?></h1>
+											</div>
 
-										<?php if( have_rows('service_list') ):
-											
-											while( have_rows('service_list') ) : the_row();									
+											<?php if( have_rows('service_list') ):
 												
-												$type_of_service = get_sub_field('type_of_service');?>
+												while( have_rows('service_list') ) : the_row();									
+													
+													$type_of_service = get_sub_field('type_of_service');?>
 
-                                                <div class="type-service">
-												<?php echo $type_of_service;?>							
-											    </div>
-											<?php endwhile;									
-										
-										endif;							
-									endwhile;						
+													<div class="type-service">
+														<ul>
+															<li><h3><?php echo $type_of_service;?></h3></li>
+														</ul>							
+													</div>
+												<?php endwhile;									
+											
+											endif; ?>
+										</div> 							
+									<?php endwhile;						
 								endif;
 							endif;
 						endwhile; ?>

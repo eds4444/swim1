@@ -299,6 +299,19 @@ a {
 }
 .pricing-block{
     background-color: chartreuse;
+    width: 100%;
+    margin: auto;   
+    overflow: hidden;
+    
+}
+.single-pricing-block{
+    background-color: blanchedalmond;
+    border: 2px solid black;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    float: left;
+    overflow: hidden;
 }
 .name-pricing{
     background-color: crimson;
