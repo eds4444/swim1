@@ -191,11 +191,11 @@ Template Name: Home
 
 					<?php while( have_rows('gallery') ) : the_row();               
 
-						$singlе_gallery = get_sub_field('singlе_gallery');?>
+						$singl_gallery = get_sub_field('singlе_gallery');?>
 
-							<div class="single-gallery">                                              
+							<div class="singl-gallery">                                              
 											
-								<?php echo wp_get_attachment_image( $singlе_gallery['ID'], array( $singlе_gallery['width'], $singlе_gallery['height'] ) );?>                           
+								<?php echo wp_get_attachment_image( $singl_gallery['ID'], array( $singl_gallery['width'], $singl_gallery['height'] ) );?>                           
 								
 							</div>               
 					
