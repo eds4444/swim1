@@ -7,7 +7,38 @@ Template Name: Home
 <html <?php language_attributes(); ?>>
 	<head>
 		<?php wp_head(); ?>
-		<meta name="viewport" content='width=1000' />
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+ 
+		<script type="text/javascript">
+		
+			$(function() {
+			
+			$(window).scroll(function() {
+			
+			if($(this).scrollTop() != 0) {
+			
+			$('#toTop').fadeIn();
+			
+			} else {
+			
+			$('#toTop').fadeOut();
+			
+			}
+			
+			});
+			
+			$('#toTop').click(function() {
+			
+			$('body,html').animate({scrollTop:0},800);
+			
+			});
+			
+			});
+		
+		</script>
+  
+ 
 	</head>
 <body>
 	<div class="site">
@@ -90,7 +121,11 @@ Template Name: Home
 					<?php endif; ?>
 				</div>
 				<div class="anchors">				
-					<a href="#about"><?php the_field('anchor_about') ?></a>   <a href="#classes"><?php the_field('anchor_classes') ?></a>    <a href="#gallery"><?php the_field('anchor_gallery') ?></a>
+					<a href="#about"><?php the_field('anchor_about') ?></a>
+					<a href="#classes"><?php the_field('anchor_classes') ?></a>   
+					<a href="#gallery"><?php the_field('anchor_gallery') ?></a>
+					<a href="#instructors"><?php the_field('anchor_instr') ?></a>
+					<a href="#pricing"><?php the_field('anchor_pricing') ?></a>
 				</div>	 
 			</div>	
 		</header>
@@ -282,62 +317,93 @@ Template Name: Home
 		<section><a name="pricing" class="anchor"></a>
 			<div class="pricing">
 				<?php             
-					if( have_rows('pricing') ):?>
+				if( have_rows('pricing') ):?>
 
-						<div class="name-block">
-							<h1><?php the_field('name_pricing');?></h1>					
-							<h3><?php the_field('title_pricing');?></h3>
-						</div>
-						<div class="pricing-block">
-							<?php while ( have_rows('pricing') ) : the_row();
-								
-								if( get_row_layout() == 'pr' ):
+					<div class="name-block">
+						<h1><?php the_field('name_pricing');?></h1>					
+						<h3><?php the_field('title_pricing');?></h3>
+					</div>
+					<div class="pricing-block">
+						<?php while ( have_rows('pricing') ) : the_row();
+							
+							if( get_row_layout() == 'pr' ):
 
-									if( have_rows('type_pricing') ):
+								if( have_rows('type_pricing') ):
+									
+									while( have_rows('type_pricing') ) : the_row();
 										
-										while( have_rows('type_pricing') ) : the_row();
-											
-											$name_pricing = get_sub_field('name_pricing');
-											$price = get_sub_field('price');?>
+										$name_pricing = get_sub_field('name_pricing');
+										$price = get_sub_field('price');?>
 
-											<div class="single-pricing-block">
-												<div class="name-pricing">
-													<h1><?php echo $name_pricing; ?></h1>
-												</div>
-												<div class="price">
-													<h1><?php echo $price; ?></h1>
-												</div>
+										<div class="single-pricing-block">
+											<div class="name-pricing">
+												<h1><?php echo $name_pricing; ?></h1>
+											</div>
+											<div class="price">
+												<h3><?php the_field('pricing_period'); ?></h3><h1><?php echo $price; ?></h1><h3><?php the_field('pricing_currency'); ?></h3>
+											</div>
 
-												<?php if( have_rows('service_list') ):
-													
-													while( have_rows('service_list') ) : the_row();									
-														
-														$type_of_service = get_sub_field('type_of_service');?>
-
-														<div class="type-service">														
-															<h3><?php echo $type_of_service;?></h3>																					
-														</div>
-													<?php endwhile;									
+											<?php if( have_rows('service_list') ):
 												
-												endif; ?>
-											</div> 							
-										<?php endwhile;						
-									endif;
+												while( have_rows('service_list') ) : the_row();									
+													
+													$type_of_service = get_sub_field('type_of_service');?>
+
+													<div class="type-service">														
+														<h3><?php echo $type_of_service;?></h3>																					
+													</div>
+												<?php endwhile;									
+											
+											endif; ?>
+										</div> 							
+									<?php endwhile;						
 								endif;
-							endwhile; ?>
-						</div>
-					<?php endif;
-				?>
+							endif;
+						endwhile; ?>
+					</div>
+				<?php endif;?>
 
 			</div>
 
 		</section>
+		
+
+		<div id = "toTop" ><?php the_field('up') ?></div>
+
+		<div class="footer">
+
+            
+			<div class="date"><h3><?php echo date( 'Y' ); ?></h3></div>
+
+			<div class="footer-name-shool"><h3><?php echo the_field('name_school');?></h3></div>
+
+			<div class="footer-block-social">
+			            <div class="social-inst">
+							<?php if(get_field ('instagram')) : ?>	  
+							<li><a href="<?php the_field('instagram') ?>" target = "_blanc" class="dashicons-instagram"></a></li>					
+							<?php endif; ?>
+						</div>
+						<div class="social-ytube"> 					
+							<?php if(get_field ('you_tube')) : ?>
+							<li><a href="<?php the_field('you_tube') ?>" target = "_blanc" class="dashicons-youtube"></a></li>
+							<?php endif; ?>
+						</div>
+						<div class="social-facebook">
+							<?php if(get_field ('facebook')) : ?>
+							<li><a href="<?php the_field('facebook') ?>" target = "_blanc" class="dashicons-facebook-alt"></a></li>
+							<?php endif; ?>
+                        </div>
+			</div>
+
+
+			<?php wp_footer(); ?>
+		</div>
 
 	</div>
 	
+	
+	
 </body>
-
-<?php get_footer();  ?>
 </html>
 
 
