@@ -280,56 +280,56 @@ Template Name: Home
 		<hr>
 
 		<section><a name="pricing" class="anchor"></a>
-		<div class="pricing">
-			<?php             
-				if( have_rows('pricing') ):?>
+			<div class="pricing">
+				<?php             
+					if( have_rows('pricing') ):?>
 
-                    <div class="name-block">
-						<h1><?php the_field('name_pricing');?></h1>					
-						<h3><?php the_field('title_pricing');?></h3>
-					</div>
-					<div class="pricing-block">
-						<?php while ( have_rows('pricing') ) : the_row();
-							
-							if( get_row_layout() == 'pr' ):
+						<div class="name-block">
+							<h1><?php the_field('name_pricing');?></h1>					
+							<h3><?php the_field('title_pricing');?></h3>
+						</div>
+						<div class="pricing-block">
+							<?php while ( have_rows('pricing') ) : the_row();
+								
+								if( get_row_layout() == 'pr' ):
 
-								if( have_rows('type_pricing') ):
-									
-									while( have_rows('type_pricing') ) : the_row();
+									if( have_rows('type_pricing') ):
 										
-										$name_pricing = get_sub_field('name_pricing');
-										$price = get_sub_field('price');?>
-
-                                        <div class="single-pricing-block">
-											<div class="name-pricing">
-												<h1><?php echo $name_pricing; ?></h1>
-											</div>
-											<div class="price">
-												<h1><?php echo $price; ?></h1>
-											</div>
-
-											<?php if( have_rows('service_list') ):
-												
-												while( have_rows('service_list') ) : the_row();									
-													
-													$type_of_service = get_sub_field('type_of_service');?>
-
-													<div class="type-service">														
-														<h3><?php echo $type_of_service;?></h3>																					
-													</div>
-												<?php endwhile;									
+										while( have_rows('type_pricing') ) : the_row();
 											
-											endif; ?>
-										</div> 							
-									<?php endwhile;						
-								endif;
-							endif;
-						endwhile; ?>
-					</div>
-				<?php endif;
-			?>
+											$name_pricing = get_sub_field('name_pricing');
+											$price = get_sub_field('price');?>
 
-		</div>
+											<div class="single-pricing-block">
+												<div class="name-pricing">
+													<h1><?php echo $name_pricing; ?></h1>
+												</div>
+												<div class="price">
+													<h1><?php echo $price; ?></h1>
+												</div>
+
+												<?php if( have_rows('service_list') ):
+													
+													while( have_rows('service_list') ) : the_row();									
+														
+														$type_of_service = get_sub_field('type_of_service');?>
+
+														<div class="type-service">														
+															<h3><?php echo $type_of_service;?></h3>																					
+														</div>
+													<?php endwhile;									
+												
+												endif; ?>
+											</div> 							
+										<?php endwhile;						
+									endif;
+								endif;
+							endwhile; ?>
+						</div>
+					<?php endif;
+				?>
+
+			</div>
 
 		</section>
 
