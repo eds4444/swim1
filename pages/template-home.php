@@ -314,10 +314,8 @@ Template Name: Home
 													
 													$type_of_service = get_sub_field('type_of_service');?>
 
-													<div class="type-service">
-														<ul>
-															<li><h3><?php echo $type_of_service;?></h3></li>
-														</ul>							
+													<div class="type-service">														
+														<h3><?php echo $type_of_service;?></h3>																					
 													</div>
 												<?php endwhile;									
 											
