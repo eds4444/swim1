@@ -381,3 +381,58 @@ a:hover{
     width: 30%;
     margin: -2px;
 }
+.sale-block{    
+    width: 100%;
+    overflow: hidden;
+}
+.single-sale{
+    background-color: chartreuse;
+    border: 3px solid #5d8aa8;
+    width: 45%;
+    margin-left: 3%;
+    margin-bottom: 20px;
+    text-align: center;
+    float: left;
+    overflow: hidden;
+}
+.name-sale{
+    background-color: coral; 
+    text-align: center;   
+}
+.foto-sale{
+    background-color: cyan;
+    border: 3px solid #5d8aa8;
+    margin: 10px;
+    width: auto;
+    height: 400px;    
+    overflow: hidden;
+    display:flex;
+    justify-content: center; 
+    align-items: center;    
+}
+.block-price-sale-sale-after{
+    background-color: #fd5949;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.price-sale{
+    background-color: darkgoldenrod;
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.sale-after{
+   background-color: rebeccapurple;
+   width: 50%;
+   float: left;
+   text-align: center;
+}
+.title-sale{
+    background-color: darkgray;
+    text-align: center;
+}
+.sale-top{
+    background-color: darkred;
+    text-align: right;
+}

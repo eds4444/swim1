@@ -126,6 +126,7 @@ Template Name: Home
 					<a href="#gallery"><?php the_field('anchor_gallery') ?></a>
 					<a href="#instructors"><?php the_field('anchor_instr') ?></a>
 					<a href="#pricing"><?php the_field('anchor_pricing') ?></a>
+					<a href="#sale"><?php the_field('anchor_sale') ?></a>
 				</div>	 
 			</div>	
 		</header>
@@ -366,6 +367,76 @@ Template Name: Home
 			</div>
 
 		</section>
+
+		<hr>
+
+		<section><a name="sale" class="anchor"></a>
+		  
+			<?php			
+				if( have_rows('sale_block') ):?>
+
+                    <div class="name-block">
+						<h1><?php the_field('name_sale_block') ?></h1>
+						<h3><?php the_field('text_sale_block') ?></h3>
+					</div>
+
+					<?php
+					while ( have_rows('sale_block') ) : the_row();
+						
+						if( get_row_layout() == 'sale' ):?>
+
+                            <div class="sale-block">
+								<?php if( have_rows('singl_sale') ):
+
+									
+									while( have_rows('singl_sale') ) : the_row();							    
+										
+										$name_sale = get_sub_field('name_sale');
+										$foto_sale = get_sub_field('foto_sale');									
+										$price_sale = get_sub_field('price_sale');
+										$title_sale = get_sub_field('title_sale');
+										$get_sale = get_sub_field('get_sale');
+										$sale_top = round(100 * ($get_sale / $price_sale),0);
+										   if ($sale_top > 0) :
+											$sale_after = ($price_sale - $get_sale);
+										   endif;?>										                                        
+
+										<div class="single-sale">
+											<div class="name-sale">
+												<h1><?php echo $name_sale;?></h1>
+											</div>
+											<div class="foto-sale">
+												<?php echo wp_get_attachment_image( $foto_sale['ID'], array( $foto_sale['width'], $foto_sale['height'] ) );?>
+											</div>
+											<div class="block-price-sale-sale-after">
+												<div class="price-sale">
+													<h1><?php echo $price_sale;?></h1>
+												</div>
+												<div class="sale-after">
+												    <h1><?php echo $sale_after;?></h1>
+												</div>
+											</div>
+											<div class="title-sale">
+												<h3><?php echo $title_sale;?></h3>
+											</div>										
+											<div class="sale-top">
+												<?php if ($sale_top > 0) : ?>																				   											
+												<h3>-<?php echo $sale_top;?>%</h3>
+											<?php endif;?>	
+											</div>										 
+										    
+										</div>
+									
+									<?php endwhile;	?>								   
+								
+								<?php endif;?>
+							</div>
+						<?php endif;					
+					endwhile;
+				endif;?>
+			
+
+		</section>
 		
 
 		<div id = "toTop" ><?php the_field('up') ?></div>
@@ -405,5 +476,6 @@ Template Name: Home
 	
 </body>
 </html>
+
 
 
