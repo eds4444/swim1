@@ -396,10 +396,8 @@ Template Name: Home
 										$price_sale = get_sub_field('price_sale');
 										$title_sale = get_sub_field('title_sale');
 										$get_sale = get_sub_field('get_sale');
-										$sale_top = round(100 * ($get_sale / $price_sale),0);
-										   if ($sale_top > 0) :
-											$sale_after = ($price_sale - $get_sale);
-										   endif;?>										                                        
+										$sale_top = round(100 * ($get_sale / $price_sale),0);?>
+										   										                                        
 
 										<div class="single-sale">
 											<div class="name-sale">
@@ -408,14 +406,28 @@ Template Name: Home
 											<div class="foto-sale">
 												<?php echo wp_get_attachment_image( $foto_sale['ID'], array( $foto_sale['width'], $foto_sale['height'] ) );?>
 											</div>
-											<div class="block-price-sale-sale-after">
-												<div class="price-sale">
+
+											<?php 
+											if ($sale_top > 0) :
+												$sale_after = ($price_sale - $get_sale); ?>
+
+												<div class="block-price-sale-sale-after">
+													<div class="price-sale">
+														<h1><?php echo $price_sale;?></h1>
+													</div>
+													<div class="sale-after">
+														<h1><?php echo $sale_after;?></h1>
+													</div>
+												</div>
+
+											<?php else :?>
+
+                                                <div class="price-sale-simple">
 													<h1><?php echo $price_sale;?></h1>
-												</div>
-												<div class="sale-after">
-												    <h1><?php echo $sale_after;?></h1>
-												</div>
-											</div>
+											    </div>
+
+											<?endif;?>
+
 											<div class="title-sale">
 												<h3><?php echo $title_sale;?></h3>
 											</div>										

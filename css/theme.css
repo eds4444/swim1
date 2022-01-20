@@ -428,6 +428,11 @@ a:hover{
    float: left;
    text-align: center;
 }
+.price-sale-simple{
+    background-color: salmon;
+    width: 100%;
+    text-align: center;
+}
 .title-sale{
     background-color: darkgray;
     text-align: center;
