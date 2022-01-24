@@ -396,10 +396,19 @@ Template Name: Home
 										$price_sale = get_sub_field('price_sale');
 										$title_sale = get_sub_field('title_sale');
 										$get_sale = get_sub_field('get_sale');
+										$money_sale = get_sub_field('money_sale');
+										$name_price_sale = get_sub_field('name_price_sale');
+										$name_after_sale = get_sub_field('name_after_sale');
 										$sale_top = round(100 * ($get_sale / $price_sale),0);?>
-										   										                                        
+
 
 										<div class="single-sale">
+											<div class="sale-top">
+												<?php if ($sale_top > 0) : ?>																				   											
+												<h3 class="sale-top-shift">-<?php echo $sale_top;?>%</h3>
+													<?php endif;?>	
+											</div>								   										                                        
+
 											<div class="name-sale">
 												<h1><?php echo $name_sale;?></h1>
 											</div>
@@ -413,30 +422,30 @@ Template Name: Home
 
 												<div class="block-price-sale-sale-after">
 													<div class="price-sale">
-														<h1><?php echo $price_sale;?></h1>
+														<h3><?php echo $name_price_sale;?></h3>
+														<h1 class="price-sale-shrift"><?php echo $price_sale;?></h1>
+														<h3><?php echo $money_sale;?></h3>
 													</div>
 													<div class="sale-after">
+													    <h3><?php echo $name_after_sale;?></h3>
 														<h1><?php echo $sale_after;?></h1>
+														<h3><?php echo $money_sale;?></h3>
 													</div>
 												</div>
 
 											<?php else :?>
 
                                                 <div class="price-sale-simple">
+												    <h3><?php echo $name_price_sale;?></h3>
 													<h1><?php echo $price_sale;?></h1>
+													<h3><?php echo $money_sale;?></h3>
 											    </div>
 
 											<?endif;?>
 
 											<div class="title-sale">
 												<h3><?php echo $title_sale;?></h3>
-											</div>										
-											<div class="sale-top">
-												<?php if ($sale_top > 0) : ?>																				   											
-												<h3>-<?php echo $sale_top;?>%</h3>
-											<?php endif;?>	
-											</div>										 
-										    
+											</div>									    
 										</div>
 									
 									<?php endwhile;	?>								   

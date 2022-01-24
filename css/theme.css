@@ -386,7 +386,7 @@ a:hover{
     overflow: hidden;
 }
 .single-sale{
-    background-color: chartreuse;
+    background-color: #c9d7e1;
     border: 3px solid #5d8aa8;
     width: 45%;
     margin-left: 3%;
@@ -396,11 +396,10 @@ a:hover{
     overflow: hidden;
 }
 .name-sale{
-    background-color: coral; 
-    text-align: center;   
+    text-align: center;
+    padding: 8px;   
 }
-.foto-sale{
-    background-color: cyan;
+.foto-sale{   
     border: 3px solid #5d8aa8;
     margin: 10px;
     width: auto;
@@ -410,34 +409,39 @@ a:hover{
     justify-content: center; 
     align-items: center;    
 }
-.block-price-sale-sale-after{
-    background-color: #fd5949;
+.block-price-sale-sale-after{    
     width: 100%;
     text-align: center;
     overflow: hidden;
 }
-.price-sale{
-    background-color: darkgoldenrod;
+.price-sale{    
     width: 50%;
     float: left;
-    text-align: center;
+    text-align: center;    
 }
-.sale-after{
-   background-color: rebeccapurple;
+h1.price-sale-shrift{
+    text-decoration: line-through;   
+    color: gray;
+}
+.sale-after{   
    width: 50%;
    float: left;
    text-align: center;
 }
 .price-sale-simple{
-    background-color: salmon;
     width: 100%;
     text-align: center;
 }
-.title-sale{
-    background-color: darkgray;
+.title-sale{    
     text-align: center;
 }
 .sale-top{
-    background-color: darkred;
-    text-align: right;
+    background-color: red;
+    text-align: center;
+    width: 100px;    
+    float: right;
+}
+h3.sale-top-shift{
+    color: whitesmoke;
+    margin: 0;
 }
